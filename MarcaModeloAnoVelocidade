@@ -1,0 +1,123 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Carro carro1;
+            Carro carro2;
+            carro1 = new Carro();
+            carro2 = new Carro();
+            Console.WriteLine("Digite a Marca do Carro 1:");
+            carro1.Marca = Console.ReadLine();
+            Console.WriteLine("Digite o modelo do carro 1: ");
+            carro1.Modelo = Console.ReadLine();
+            Console.WriteLine("Digite o Ano do carro 1:");
+            carro1.Ano = int.Parse(Console.ReadLine());
+            Console.WriteLine("Quanto você quer acelerar o carro 1?");
+            carro1.Acelerar(float.Parse(Console.ReadLine()));
+            Console.WriteLine("Digite a Marca do Carro 2:");
+            carro2.Marca = Console.ReadLine();
+            Console.WriteLine("Digite o modelo do carro 2: ");
+            carro2.Modelo = Console.ReadLine();
+            Console.WriteLine("Digite o Ano do carro 2:");
+            carro2.Ano = int.Parse(Console.ReadLine());
+            Console.WriteLine("Quanto você quer acelerar o carro 2?");
+            carro2.Acelerar(float.Parse(Console.ReadLine()));
+            Console.WriteLine("=============================================");
+            Console.WriteLine("Dados carro 1:");
+            Console.WriteLine(carro1.imprimir());
+            Console.WriteLine("=============================================");
+            Console.WriteLine("Dados carro 2:");
+            Console.WriteLine(carro2.imprimir());
+            Console.WriteLine("=============================================");
+            Console.ReadKey();
+        }
+    }
+    class Carro
+    {
+            private string marca;
+            private string modelo;
+            private int ano;
+            private float velocidadeAtual;
+        public string Marca
+        {
+            get
+            {
+                return marca;
+            }
+
+            set
+            {
+                marca = value;
+            }
+        }
+
+        public string Modelo
+        {
+            get
+            {
+                return modelo;
+            }
+
+            set
+            {
+                modelo = value;
+            }
+        }
+
+        public int Ano
+        {
+            get
+            {
+                return ano;
+            }
+
+            set
+            {
+                ano = value;
+            }
+        }
+
+        public float VelocidadeAtual
+        {
+            get
+            {
+                return velocidadeAtual;
+            }
+
+            set
+            {
+                velocidadeAtual = value;
+            }
+        }
+        public void Acelerar(float velocidade)
+        {
+            velocidadeAtual += velocidade;
+        }
+        public void Freiar()
+        {
+            velocidadeAtual --;
+        }
+
+        public Carro()
+        {
+        }
+            public Carro(string marca, string modelo, int ano)
+        {
+            this.marca = marca;
+            this.modelo = modelo;
+            this.ano = ano;
+        }
+        public string imprimir()
+        {
+           return "Marca: "+Marca +"\nModelo: "+modelo +"\nAno: " + ano +"\nVelocidade: "+velocidadeAtual+"Km/h"; 
+        }
+    }
+    }
